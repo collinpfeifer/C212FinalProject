@@ -1,5 +1,7 @@
 package edu.iu.c212.programs;
 
+import edu.iu.c212.programs.StoreMapDisplay.StoreMapDisplay;
+
 import javax.swing.*;
 import java.awt.*;
 

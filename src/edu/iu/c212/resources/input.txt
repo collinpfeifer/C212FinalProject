@@ -1,0 +1,4 @@
+ADD 'LARGE WoodenSpoon' 1200000 21 3 //added to inventory.txt
+FIRE 'Minerva' 4/20/2022
+ADD 'LUKE BIG DICK MENG'
+"LARGE WoodenSpoon was added to inventory" //added to output.txt
