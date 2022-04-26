@@ -1,7 +1,5 @@
 package edu.iu.c212.programs;
 
-import edu.iu.c212.programs.StoreMapDisplay.StoreMapDisplay;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,8 +13,12 @@ public class StoreMap extends JComponent {
         // Drawing the map
         // No need to touch the code in this section of the method
         // Set StoreMapDisplay.WIDTH to 700 and StoreMapDisplay.HEIGHT to 500 for this to display properly!
-        int canvasWidth = StoreMapDisplay.WIDTH - 10;
-        int canvasHeight = StoreMapDisplay.HEIGHT - 37;
+
+        // StoreMapDisplay.WIDTH - 10;
+        // StoreMapDisplay.HEIGHT - 37;
+
+        int canvasWidth = 50;
+        int canvasHeight = 50;
         int aisleWidth = 200;
         int aisleHeight = 40;
         // draw the map

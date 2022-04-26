@@ -1,0 +1,10 @@
+Jason Henderson 35 T.TR.SAT.SUN M
+Catherine Garcia 19 M.W.F.SAT C
+Amanda Smith 24 M.T.W.TR G
+Earl Edwards 18 TR.F.SAT.SUN C
+Kenneth White 40 M.T.W.F. M
+Carolyn Perry 22 F.SAT.SUN G
+Lisa Russell 46 T.W.TR.F C
+Anthony Mitchell 20 M.W.F.SUN C
+Jack Sanchez 26 M.T.W G
+Wanda Flores 67 W.TR.F.SUN M
