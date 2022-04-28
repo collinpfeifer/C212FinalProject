@@ -1,8 +1,9 @@
-package edu.iu.c212.Store;
+package edu.iu.c212;
 
-import edu.iu.c212.IStore.IStore;
-import edu.iu.c212.models.Item.Item;
-import edu.iu.c212.models.Staff.Staff;
+import edu.iu.c212.IStore;
+import edu.iu.c212.models.Item;
+import edu.iu.c212.models.Staff;
+import edu.iu.c212.programs.SawPrimePlanks;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class Store implements IStore {
                     break;
                 case "FIND":
                     // do this shit later
-                    writer.println(line.split(" ")[1] + "was added to inventory");
+
                     break;
                 case "FIRE":
                     //wtf is this
@@ -64,22 +65,38 @@ public class Store implements IStore {
                     break;
                 case "HIRE":
                     staff.add(new Staff(s.split("‘")[1], Integer.parseInt(s.split(" ")[3]), s.split(" ")[4]));
+                    writeLineToOutputFile(s.split("‘")[1] + " has been hired as a " + s.split(" ")[4]);
                     break;
                 case "PROMOTE":
-                    writer.println(line.split(" ")[1] + "was added to inventory");
+                    for(Staff sp: staff){
+                        if(sp.getName().equals(s.split("‘")[1])){
+                            sp.setRole(s.split(" ")[3]);
+                            writeStaffToFile(staff);
+                            writeLineToOutputFile(sp.getName() + " was promoted to " + s.split(" ")[3]);
+                            break;
+                        }
+                    }
                     break;
                 case "SAW":
-                    writer.println(line.split(" ")[1] + "was added to inventory");
+                    for(Item it: inventory){
+                        if(it.getName().equals("Wood")){
+                            it.setName("Plank-" + Math.sqrt(it.getPrice()));
+                            it.setQuantity(SawPrimePlanks.getPlankLengths((int) Math.sqrt(it.getPrice())).size());
+                        }
+                        writeLineToOutputFile("Planks sawed");
+                    }
                     break;
                 case "SCHEDULE":
-                    writer.println(line.split(" ")[1] + "was added to inventory");
+                    
                     break;
                 case "SELL":
-                    writer.println(line.split(" ")[1] + "was added to inventory");
+
                     break;
                 case "QUANTITY":
-                    writer.println(line.split(" ")[1] + "was added to inventory");
+
                     break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + s.split(" ")[0]);
             }
         }
     }

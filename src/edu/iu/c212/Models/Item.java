@@ -1,10 +1,26 @@
-package edu.iu.c212.models.Item;
+package edu.iu.c212.models;
 
 public class Item {
     private String name;
     private double price;
     private int quantity;
     private int aisleNum;
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getAisleNum() {
+        return aisleNum;
+    }
+
+    public void setAisleNum(int aisleNum) {
+        this.aisleNum = aisleNum;
+    }
 
     public Item(String name, double price, int quantity, int aisleNum){
             this.name = name;
@@ -15,6 +31,10 @@ public class Item {
 
     public String getName(){
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPrice(){

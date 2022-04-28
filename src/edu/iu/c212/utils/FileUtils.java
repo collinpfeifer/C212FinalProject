@@ -1,8 +1,8 @@
 package edu.iu.c212.utils;
 
 
-import edu.iu.c212.models.Item.Item;
-import edu.iu.c212.models.Staff.Staff;
+import edu.iu.c212.models.Item;
+import edu.iu.c212.models.Staff;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,16 +13,16 @@ import java.util.Scanner;
 
 public class FileUtils {
     private static File inputFile = new File("src/resources/input.txt");
-    private static File outputFile = new File("C:\\Users\\lucas\\Desktop\\C212 Lab Assignments\\FINALPROJECT X\\ProjectStarterCode-3\\ProjectStarterCode\\ProjectStarterCode\\src\\resources\\output.txt");
-    private static File inventoryFile = new File("C:\\Users\\lucas\\Desktop\\C212 Lab Assignments\\FINALPROJECT X\\ProjectStarterCode-3\\ProjectStarterCode\\ProjectStarterCode\\src\\resources\\inventory.txt");
-    private static File staffFile = new File("C:\\Users\\lucas\\Desktop\\C212 Lab Assignments\\FINALPROJECT X\\ProjectStarterCode-3\\ProjectStarterCode\\ProjectStarterCode\\src\\resources\\staff.txt");
-    private static File staffAvailabilityFile = new File("C:\\Users\\lucas\\Desktop\\C212 Lab Assignments\\FINALPROJECT X\\ProjectStarterCode-3\\ProjectStarterCode\\ProjectStarterCode\\src\\resources\\staff_availability_IN.txt");
-    private static File shiftSchedulesFile = new File("C:\\Users\\lucas\\Desktop\\C212 Lab Assignments\\FINALPROJECT X\\ProjectStarterCode-3\\ProjectStarterCode\\ProjectStarterCode\\src\\resources\\shift_schedules_IN.txt");
-    private static File storeScheduleFile = new File("C:\\Users\\lucas\\Desktop\\C212 Lab Assignments\\FINALPROJECT X\\ProjectStarterCode-3\\ProjectStarterCode\\ProjectStarterCode\\src\\resources\\store_schedules_IN.txt");
+    private static File outputFile = new File("src/resources/output.txt");
+    private static File inventoryFile = new File("src/resources/inventory.txt");
+    private static File staffFile = new File("src/resources/staff.txt");
+    private static File staffAvailabilityFile = new File("src/resources/staff_availability_IN.txt");
+    private static File shiftSchedulesFile = new File("src/resources/shift_schedules_IN.txt");
+    private static File storeScheduleFile = new File("src/resources/store_schedules_IN.txt");
 
 
     public static void main(String[] args) throws IOException {
-        writeStaffToFile(readStaffFromFile());
+        System.out.println(readCommandsFromFile());
 
     }
 

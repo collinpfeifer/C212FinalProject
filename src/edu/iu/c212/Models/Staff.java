@@ -1,4 +1,4 @@
-package edu.iu.c212.models.Staff;
+package edu.iu.c212.models;
 
 public class Staff {
     private String fullName;
@@ -30,6 +30,10 @@ public class Staff {
 
     public String getRole(){
         return role;
+    }
+
+    public void setRole(String role){
+        this.role = role;
     }
 
     public String getAvailability(){

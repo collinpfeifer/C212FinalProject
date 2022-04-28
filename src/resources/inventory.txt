@@ -1,15 +1,15 @@
 'Hammer' 30.0 3 2
 'Multi Bit Ratcheting' 59.0 4 1
 'Paint cans' 20.0 5 4
-'Pilers' 15.0 1 5
+'Pliers' 15.0 1 5
 'Shovel' 40.0 2 10
-'Fiskars' 22.0 7 20
+'Fisk-ars' 22.0 7 20
 'Hand trucks' 29.0 3 8
 'Gas chain saw' 39.0 4 3
-'Wheel Barrow' 100.0 5 7
+'Wheelbarrow' 100.0 5 7
 'Shears' 30.0 8 4
 'Cotton Hoe' 43.0 8 2
-'Pottato Hook' 54.0 3 5
+'Potato Hook' 54.0 3 5
 'Drill Forks' 68.0 7 10
 'Potting Soils' 9.0 4 12
 'Rakes' 20.0 6 20
@@ -17,5 +17,5 @@
 'Composters' 70.0 11 4
 'Pots' 21.0 11 5
 'Wood' 14.0 12 80
-'Water Nosel' 18.0 11 24
+'Water Nozzle' 18.0 11 24
 'Leaf Blower' 91.0 8 18

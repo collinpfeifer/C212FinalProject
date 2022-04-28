@@ -1,7 +1,7 @@
-package edu.iu.c212.IStore;
+package edu.iu.c212;
 
-import edu.iu.c212.models.Item.Item;
-import edu.iu.c212.models.Staff.Staff;
+import edu.iu.c212.models.Item;
+import edu.iu.c212.models.Staff;
 
 import java.io.IOException;
 import java.util.List;
