@@ -103,7 +103,7 @@ public class FileUtils {
     }
 
     public static void writeLineToOutputFile(String line) throws IOException {
-        FileWriter writer = new FileWriter(staffFile);
+        FileWriter writer = new FileWriter(outputFile);
         writer.write(line);
         writer.close();
     }

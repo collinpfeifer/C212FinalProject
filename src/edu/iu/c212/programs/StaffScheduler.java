@@ -20,59 +20,59 @@ public class StaffScheduler {
         ArrayList<Double> hours = new ArrayList<>();
         ArrayList<String> schedule = new ArrayList<>();
         ArrayList<ArrayList<String>> days = new ArrayList<>(Arrays.asList(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
-        for(Staff s: staff){
-            hours.add(0.0);
-        }
-        // when the person who has worked the least amoutn of hours has fufilled their avaiability
+        for(Staff s: staff) hours.add(0.0);
+
        while(true) {
-            ArrayList<Staff> canWork = new ArrayList<>();
-           ArrayList<String> minDay = new ArrayList<>();
+           // check which day has the least amount of people working
            int min = Integer.MAX_VALUE;
-           double hoursToWork = 0;
-           double minHours = Integer.MAX_VALUE;
-           int minIndex = 0;
-
-
+           ArrayList<String> minDay = new ArrayList<>();
            for (ArrayList<String> a : days) {
                 if (a.size() < min) {
                     min = a.size();
                     minDay = a;
                 }
-            }
+           }
+
+           // figure out which day that is and the hours that needs to be worked
+           double hoursToWork = 0;
+           ArrayList<Staff> canWork = new ArrayList<>();
+           String day = "";
+           switch (days.indexOf(minDay)) {
+               case 0:
+                   day = "M";
+                   hoursToWork = 9;
+                   break;
+               case 1:
+                   day = "T";
+                   hoursToWork = 9;
+                   break;
+               case 2:
+                   day = "W";
+                   hoursToWork = 9;
+                   break;
+               case 3:
+                   day = "TR";
+                   hoursToWork = 9;
+                   break;
+               case 4:
+                   day = "F";
+                   hoursToWork = 9;
+                   break;
+               case 5:
+                   day = "SAT";
+                   hoursToWork = 12.5;
+                   break;
+               case 6:
+                   day = "SUN";
+                   hoursToWork = 12.5;
+                   break;
+           }
+
+           // for each staff member check if they are available to work on that day
             for (Staff s : staff) {
                 String available = s.getAvailability();
-                int index = days.indexOf(minDay);
-                String day = "";
-                switch (index) {
-                    case 0 -> {
-                        day = "M";
-                        hoursToWork = 9;
-                    }
-                    case 1 -> {
-                        day = "T";
-                        hoursToWork = 9;
-                    }
-                    case 2 -> {
-                        day = "W";
-                        hoursToWork = 9;
-                    }
-                    case 3 -> {
-                        day = "TR";
-                        hoursToWork = 9;
-                    }
-                    case 4 -> {
-                        day = "F";
-                        hoursToWork = 9;
-                    }
-                    case 5 -> {
-                        day = "SAT";
-                        hoursToWork = 12.5;
-                    }
-                    case 6 -> {
-                        day = "SUN";
-                        hoursToWork = 12.5;
-                    }
-                }
+                // if they are available to work then add them to canWork
+                // else then we add null
                 if (available.contains(day)) {
                     canWork.add(s);
                 } else {
@@ -80,6 +80,9 @@ public class StaffScheduler {
                 }
             }
 
+            // figure out who out of the people who can work, has the lowest amount of hours worked
+           int minIndex = 0;
+           double minHours = Integer.MAX_VALUE;
             for (int i = 0; i < canWork.size(); i++) {
                 if (!(canWork.get(i) == null) && hours.get(i) < minHours) {
                     minHours = hours.get(i);
@@ -87,14 +90,17 @@ public class StaffScheduler {
                 }
             }
 
+            // checking if this person who can work and has the lowest amount of hours already exists in the day
+            // that we are trying to schedule, if so then break the loop as we will start repeating people
             if(days.get(days.indexOf(minDay)).contains(staff.get(minIndex).getName())){
                 break;
+                // else then adding the person to the work schedule and their hours into the hours they work
+            } else {
+                days.get(days.indexOf(minDay)).add(staff.get(minIndex).getName());
+                hours.set(minIndex, hoursToWork + hours.get(minIndex));
             }
-
-            days.get(days.indexOf(minDay)).add(staff.get(minIndex).getName());
-            hours.set(minIndex, hoursToWork + hours.get(minIndex));
-            System.out.println(hours);
-           System.out.println(days);
         }
+        System.out.println(hours);
+        System.out.println(days);
     }
 }
