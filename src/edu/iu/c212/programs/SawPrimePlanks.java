@@ -37,5 +37,4 @@ public class SawPrimePlanks {
         return true;
     }
 
-
 }

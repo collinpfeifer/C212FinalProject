@@ -4,6 +4,8 @@ import edu.iu.c212.IStore;
 import edu.iu.c212.models.Item;
 import edu.iu.c212.models.Staff;
 import edu.iu.c212.programs.SawPrimePlanks;
+import edu.iu.c212.programs.StaffScheduler;
+import edu.iu.c212.programs.StoreMap;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,7 +48,7 @@ public class Store implements IStore {
                     break;
                 case "FIND":
                     // do this shit later
-
+                    StoreMap map = new StoreMap(8);
                     break;
                 case "FIRE":
                     //wtf is this
@@ -87,7 +89,8 @@ public class Store implements IStore {
                     }
                     break;
                 case "SCHEDULE":
-                    
+                    StaffScheduler.scheduleStaff();
+                    writeLineToOutputFile("Schedule created");
                     break;
                 case "SELL":
 
