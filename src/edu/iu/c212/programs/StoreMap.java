@@ -2,6 +2,7 @@ package edu.iu.c212.programs;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class StoreMap extends JComponent {
     private final int aisleNum;
@@ -17,8 +18,8 @@ public class StoreMap extends JComponent {
         // StoreMapDisplay.WIDTH - 10;
         // StoreMapDisplay.HEIGHT - 37;
 
-        int canvasWidth = 50;
-        int canvasHeight = 50;
+        int canvasWidth = 690;
+        int canvasHeight = 463;
         int aisleWidth = 200;
         int aisleHeight = 40;
         // draw the map
@@ -33,6 +34,11 @@ public class StoreMap extends JComponent {
         g.fillRect(450, canvasHeight/2-10, canvasHeight/2, 10);
         // draw shelves
         g.setColor(Color.BLUE);
+
+        ArrayList<Integer> yArrayList = new ArrayList<>();
+        ArrayList<Integer> aisleWidthArrayList = new ArrayList<>();
+        ArrayList<Integer> aisleHeightArrayList = new ArrayList<>();
+
         for (int i = 0; i < 7; i++) {
             g.fillRect(30, 30 + 60 * i, aisleWidth, aisleHeight);
             if (i > 3) g.fillRect(450, 30 + 60 * i, aisleWidth, aisleHeight);
@@ -62,7 +68,64 @@ public class StoreMap extends JComponent {
         }
 
         // TODO: draw the box appropriately around the aisle. You'll need to define these boundaries yourself for each one!
-        g.setColor(Color.GREEN);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setPaint(Color.GREEN);
+        //g2d.drawRect(100, 100, 200, 40);
+        if(aisleNum == 1){
+            g2d.drawRect(30, 30 + 60 * 0, aisleWidth, aisleHeight);
+        } else if(aisleNum == 2){
+            g2d.drawRect(30, 30 + 60 * 1, aisleWidth, aisleHeight);
+
+        } else if(aisleNum == 3){
+            g2d.drawRect(30, 30 + 60 * 2, aisleWidth, aisleHeight);
+        }else if(aisleNum == 4){
+            g2d.drawRect(30, 30 + 60 * 3, aisleWidth, aisleHeight);
+        }else if(aisleNum == 5){
+            g2d.drawRect(30, 30 + 60 * 4, aisleWidth, aisleHeight);
+        }else if(aisleNum == 6){
+            g2d.drawRect(30, 30 + 60 * 5, aisleWidth, aisleHeight);
+        }else if(aisleNum == 7){
+            g2d.drawRect(30, 30 + 60 * 6, aisleWidth, aisleHeight);
+        }else if(aisleNum == 8){
+            g2d.drawRect(30, 30 + 60 * 7, aisleWidth, aisleHeight);
+
+        }else if(aisleNum == 9){
+            g2d.drawRect(450, 30 + 60 * 4, aisleWidth, aisleHeight);
+
+        }else if(aisleNum == 10){
+            g2d.drawRect(450, 30 + 60 * 5, aisleWidth, aisleHeight);
+
+        }else if(aisleNum == 11){
+            g2d.drawRect(450, 30 + 60 * 6, aisleWidth, aisleHeight);
+
+        }else if(aisleNum == 12){
+            g2d.drawRect(450, 30 + 60 * 7, aisleWidth, aisleHeight);
+
+        }else if(aisleNum == 13){
+            g.drawRect(490 + 60 * 0, 30 + 60 * 0, 40, 40);
+
+        }else if(aisleNum == 14){
+            g.drawRect(490 + 60 * 0, 30 + 60 * 1, 40, 40);
+
+        }else if(aisleNum == 15){
+            g.drawRect(490 + 60 * 0, 30 + 60 * 2, 40, 40);
+
+        }else if(aisleNum == 16){
+            g.drawRect(490 + 60 * 1, 30 + 60 * 0, 40, 40);
+
+        }else if(aisleNum == 17){
+            g.drawRect(490 + 60 * 1, 30 + 60 * 1, 40, 40);
+        }else if(aisleNum == 18){
+            g.drawRect(490 + 60 * 1, 30 + 60 * 2, 40, 40);
+        }else if(aisleNum == 19){
+            g.drawRect(490 + 60 * 2, 30 + 60 * 0, 40, 40);
+        }else if(aisleNum == 20){
+            g.drawRect(490 + 60 * 2, 30 + 60 * 1, 40, 40);
+
+        }else if(aisleNum == 21){
+            g.drawRect(490 + 60 * 2, 30 + 60 * 2, 40, 40);
+        }
+
 
     }
 
