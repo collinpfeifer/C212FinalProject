@@ -4,10 +4,10 @@ package edu.iu.c212.utils;
 import edu.iu.c212.models.Item;
 import edu.iu.c212.models.Staff;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,13 +18,7 @@ public class FileUtils {
     private static File staffFile = new File("src/resources/staff.txt");
     private static File staffAvailabilityFile = new File("src/resources/staff_availability_IN.txt");
     private static File shiftSchedulesFile = new File("src/resources/shift_schedules_IN.txt");
-    private static File storeScheduleFile = new File("src/resources/store_schedules_IN.txt");
-
-
-    public static void main(String[] args) throws IOException {
-        System.out.println(readCommandsFromFile());
-
-    }
+    private static File storeScheduleFile = new File("src/resources/store_schedule_OUT.txt");
 
     public static List<Item> readInventoryFromFile() throws IOException {
         System.out.println(inventoryFile/*.toURI()*/.getPath() + "\n" + inventoryFile.exists());
@@ -35,7 +29,6 @@ public class FileUtils {
         while(myReader.hasNextLine()){
             String data = myReader.nextLine();
             String name = data.split(",")[0];
-            System.out.println(name);
             double price = Double.parseDouble(data.split(",")[1]);
             int quantity =  Integer.parseInt(data.split(",")[2]);
             int aisleNum = Integer.parseInt(data.split(",")[3]);
@@ -66,17 +59,15 @@ public class FileUtils {
     public static void writeInventoryToFile(List<Item> items) throws IOException {
         FileWriter writer = new FileWriter(inventoryFile);
         for(Item item: items){
-            //System.out.println(item.getName());
-            writer.write(item.getName() + " " + item.getPrice() + " " + item.getAisle() + " " + item.getQuantity() + "\n");
+            writer.write(item.getName() + " " + item.getPrice() + " " + item.getQuantity() + " " + item.getAisle() + "\n");
         }
         writer.close();
     }
 
     public static void writeStaffToFile(List<Staff> employees) throws IOException {
-        FileWriter writer = new FileWriter(staffFile);
+        FileWriter writer = new FileWriter(staffAvailabilityFile);
         for(Staff staffer: employees){
-            //System.out.println(item.getName());
-            writer.write(staffer.getName() + " " + staffer.getAge() + " " + staffer.getAvailability() + " " + staffer.getRole() + "\n");
+            writer.write(staffer.getName() + " " + staffer.getAge() + " " + staffer.getRole() + " " + staffer.getAvailability() + "\n");
         }
         writer.close();
     }
@@ -94,17 +85,25 @@ public class FileUtils {
     }
 
     public static void writeStoreScheduleToFile(List<String> lines) throws IOException {
-        FileWriter writer = new FileWriter(storeScheduleFile);
+        FileWriter fw = new FileWriter(storeScheduleFile,true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter writer = new PrintWriter(bw, true);
+        PrintWriter clear = new PrintWriter(storeScheduleFile);
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HHmm");
+        Date date = new Date();
+        clear.println();
+        writer.write("Created on " + formatter.format(date).split(" ")[0] + " at " + formatter.format(date).split(" ")[1] + "\n");
         for(String line: lines){
-            //System.out.println(item.getName());
             writer.write(line + "\n");
         }
         writer.close();
     }
 
     public static void writeLineToOutputFile(String line) throws IOException {
-        FileWriter writer = new FileWriter(outputFile);
-        writer.write(line);
+        FileWriter fw = new FileWriter(outputFile,true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter writer = new PrintWriter(bw, true);
+        writer.write(line + "\n");
         writer.close();
     }
 

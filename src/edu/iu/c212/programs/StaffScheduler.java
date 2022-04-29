@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 
 import static edu.iu.c212.utils.FileUtils.readStaffFromFile;
+import static edu.iu.c212.utils.FileUtils.writeStoreScheduleToFile;
 
 public class StaffScheduler {
 
@@ -100,7 +101,66 @@ public class StaffScheduler {
                 hours.set(minIndex, hoursToWork + hours.get(minIndex));
             }
         }
-        System.out.println(hours);
-        System.out.println(days);
+        for(ArrayList<String> as: days){
+            switch (days.indexOf(as)) {
+                case 0:
+                    String returnStr = "M";
+                    //printDay = "M";
+                    for(String s: as){
+                        returnStr += " (" + s + ")";
+                    }
+                    schedule.add(returnStr);
+                    break;
+                case 1:
+                    String returnStr2 = "T";
+                    //printDay = "M";
+                    for(String s: as){
+                        returnStr2 += " (" + s + ")";
+                    }
+                    schedule.add(returnStr2);
+                    break;
+                case 2:
+                    String returnStr3 = "W";
+                    //printDay = "M";
+                    for(String s: as){
+                        returnStr3 += " (" + s + ")";
+                    }
+                    schedule.add(returnStr3);
+                    break;
+                case 3:
+                    String returnStr4 = "TR";
+                    //printDay = "M";
+                    for(String s: as){
+                        returnStr4 += " (" + s + ")";
+                    }
+                    schedule.add(returnStr4);
+                    break;
+                case 4:
+                    String returnStr5 = "F";
+                    //printDay = "M";
+                    for(String s: as){
+                        returnStr5 += " (" + s + ")";
+                    }
+                    schedule.add(returnStr5);
+                    break;
+                case 5:
+                    String returnStr6 = "SAT";
+                    //printDay = "M";
+                    for(String s: as){
+                        returnStr6 += " (" + s + ")";
+                    }
+                    schedule.add(returnStr6);
+                    break;
+                case 6:
+                    String returnStr7 = "SUN";
+                    //printDay = "M";
+                    for(String s: as){
+                        returnStr7 += " (" + s + ")";
+                    }
+                    schedule.add(returnStr7);
+                    break;
+            }
+        }
+        writeStoreScheduleToFile(schedule);
     }
 }

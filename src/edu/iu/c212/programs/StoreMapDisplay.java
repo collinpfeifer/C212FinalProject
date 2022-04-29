@@ -12,7 +12,6 @@ public class StoreMapDisplay {
 
         //UNCOMMENT THE LINE BELOW!!!!
         frame.add(new StoreMap(aisleToHighlight));
-        //frame.pack();
         frame.setVisible(true);
     }
 }

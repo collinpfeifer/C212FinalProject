@@ -11,7 +11,7 @@ public interface IStore {
 
     public List<Staff> getStaffFromFile();
 
-    public void saveItemsFromFIle();
+    public void saveItemsFromFile();
 
     public void saveStaffFromFile();
 

@@ -1,7 +1,9 @@
 package edu.iu.c212;
 
-public class StoreMain {
-    public static void main(String[] args) {
+import java.io.IOException;
 
+public class StoreMain {
+    public static void main(String[] args) throws IOException {
+        Store store = new Store();
     }
 }
